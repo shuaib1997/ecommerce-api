@@ -1,0 +1,46 @@
+#Application Name
+spring:
+  application:
+    name: E-commerce Application
+    
+  #Datasource Configuration
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    
+  #H2 Console Configuration
+  h2:
+    console:
+      enabled: true
+  #JPA Configuration  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  docker:
+    compose:
+      lifecycle-management: start-only
+#Spring Security Configuration
+security:
+  user:
+    name: admin
+    password: admin
+#Port Configuration
+server:
+  port: 8080
+  #Session Configuration
+  servlet:
+    session:
+      cookie:
+        name: SESSIONID
+        http-only: true
+        secure: false # Change to true if using HTTPS
+      timeout: 10s # Adjust session timeout as needed
+      
+   
+
